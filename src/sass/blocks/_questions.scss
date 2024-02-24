@@ -1,0 +1,15 @@
+.questions {
+    margin-top: 60px;
+    .col-md-7 {
+        padding-right: 0;
+    }
+    .col-md-5 {
+        padding-left: 0;
+    }
+    &__wrapper {
+        background: $light-grey;
+        padding: 30px;
+        min-height: 521px;
+        border-radius: 20px 0 0 20px;
+    }
+}

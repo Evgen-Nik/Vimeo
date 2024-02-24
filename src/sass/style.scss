@@ -1,0 +1,33 @@
+@import 'libs/bootstrap-reboot.min';
+
+@import 'fonts/fonts';
+
+* {
+    font-family: 'ProximaNova';
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 1170px;
+    margin: 0 auto;
+}
+
+// @import 'base/animations';
+@import 'base/variables';
+
+@import 'common/title';
+@import 'common/text';
+@import 'common/btn';
+
+@import 'blocks/header';
+@import 'blocks/menu';
+@import 'blocks/promo';
+@import 'blocks/cataloge';
+@import 'blocks/textBlock';
+@import 'blocks/carousel';
+@import 'blocks/questions';
+@import 'blocks/footer';
+@import 'blocks/modal';
+
+@import 'blocks/media';

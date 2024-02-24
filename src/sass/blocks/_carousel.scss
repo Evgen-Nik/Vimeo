@@ -1,0 +1,50 @@
+.carousel {
+    margin-top: 60px;
+    background: $light-grey;
+    padding-top: 50px;
+    padding-bottom: 60px;
+    .swiper {
+        margin-top: 30px;
+        padding-bottom: 20px;
+        .swiper-slide {
+            padding: 5px;
+            // text-align: center;
+            // font-size: 18px;
+            // background: grey;
+            // /* Center slide text vertically */
+            // display: flex;
+            // justify-content: center;
+            // align-items: center;
+        }
+        .swiper-pagination {
+            bottom: 0;
+        }
+    }
+    &__text {
+        margin-top: 10px;
+    }
+    &__image {
+        background: #EDEEF0;
+        height: 180px;
+        position: relative;
+        display: block;
+        margin: 0 auto;
+        border-radius: 8px 8px 0 0;
+        img {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+    &__descr {
+        background: #fff;
+        min-height: 150px;
+        padding: 25px;
+        box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2);
+        border-radius: 0 0 8px 8px;
+    }
+    &__text {
+        margin-top: 15px;
+    }
+}

@@ -1,0 +1,31 @@
+.promo {
+    background: $light-grey;
+    min-height: 509px;
+    &__nav {
+        margin-top: 20px;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+    }
+    h1 {
+        margin-top: 30px;
+        margin-bottom: 60px;
+        span {
+            color: $main-color;
+        }
+    }
+    p {
+        max-width: 724px;
+        margin-bottom: 30px;
+    }
+    &__btn {
+        text-transform: uppercase;
+    }
+    &__foto {
+        position: relative;
+        img {
+            position: absolute;
+            right: 0;
+        }
+    }
+}

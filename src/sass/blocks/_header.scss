@@ -1,0 +1,130 @@
+.header {
+    height: 92px;
+    padding-top: 18px;
+    .container {
+        display: flex;
+        align-items: center;
+    }
+    &__logo {
+        position: absolute;
+        top: -14px;
+        border: 1px solid #000;
+        margin-left: 25px;
+        z-index: 10;
+    }
+    &__location {
+        margin-left: 274px;
+        position: relative;
+        &::before {
+            position: absolute;
+            top: -21px;
+            left: -30px;
+            content: '';
+            width: 1px;
+            height: 92px;
+            background: $light-grey;
+        }
+    }
+    &__pin {
+        img{
+            padding-left: 1px;
+            padding-right: 9px;
+        }
+        color: $main-color;
+		padding-right: 10px;
+    }
+    &__greyText {
+        border-left: 1px solid #DFDFDF;
+        padding-left: 13px;
+    }
+	&__btn {
+        margin: 0 90px;
+        width: 214px;
+        padding: 0 30px 0 71px;
+        line-height: 14px;
+        text-align: left;
+        position: relative;
+        &:before {
+            position: absolute;
+            content: '';
+            background: url('../icons/text.svg');
+            top: 10px;
+            left: 30px;
+            width: 31px;
+            height: 32px;
+        }
+    }
+    &__contacts {
+        position: relative;
+        a {
+            display: block;
+            color: $main-color;
+            text-align: end;
+            text-decoration: underline dashed $main-color;
+            &:hover {
+                text-decoration: none;
+            }
+        }
+        &::before {
+            position: absolute;
+            top: -21px;
+            left: -30px;
+            content: '';
+            width: 1px;
+            height: 92px;
+            background: $light-grey;
+        }
+    }
+    &__likes {
+        margin-left: 30px;
+        position: relative;
+        height: 38px;
+        img {
+            position: absolute;
+            bottom: 2px;
+        }
+        span {
+            font-size: 12px;
+            line-height: 14px;
+            text-transform: uppercase;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 23px;
+            height: 23px;
+            position: absolute;
+            top: -3px;
+            left: 22px;
+            background: $main-color;
+            padding: 2px 3px 1px;
+            border-radius: 23px;
+        }
+    }
+    &__basket {
+        margin-left: 60px;
+        position: relative;
+        height: 38px;
+        img {
+            position: absolute;
+            bottom: 2px;
+        }
+        span {
+            font-size: 12px;
+            line-height: 14px;
+            text-transform: uppercase;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 23px;
+            height: 23px;
+            position: absolute;
+            top: -3px;
+            left: 22px;
+            background: $main-color;
+            padding: 2px 3px 1px;
+            border-radius: 23px;
+        }
+    }
+}
