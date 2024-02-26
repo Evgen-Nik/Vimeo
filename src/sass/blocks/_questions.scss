@@ -1,7 +1,16 @@
 .questions {
     margin-top: 60px;
+    // .container {
+    //     display: flex;
+    // }
+    .row {
+        width: 100%;
+    }
     .col-md-7 {
         padding-right: 0;
+        flex: 1;
+        display: flex;
+        align-items: stretch;
     }
     .col-md-5 {
         padding-left: 0;
@@ -9,7 +18,6 @@
     &__wrapper {
         background: $light-grey;
         padding: 30px;
-        min-height: 521px;
         border-radius: 20px 0 0 20px;
     }
 }

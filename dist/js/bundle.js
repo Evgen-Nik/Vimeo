@@ -1,124 +1,6 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/js/modules/cardDetails.js":
-/*!***************************************!*\
-  !*** ./src/js/modules/cardDetails.js ***!
-  \***************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _services_services__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../services/services */ "./src/js/services/services.js");
-
-function cardDetails(adress) {
-  class details {
-    constructor(title, id, descr, parentSelector, ...classes) {
-      this.title = title;
-      this.id = id;
-      this.descr = descr;
-      this.parent = document.querySelector(parentSelector);
-      this.classes = classes;
-    }
-    render() {
-      const elemDescr = document.createElement('div');
-      if (this.classes.length === 0) {
-        this.elemDescr = 'cardDetail';
-        elemDescr.classList.add(this.elemDescr);
-      } else {
-        this.classes.forEach(className => elemDescr.classList.add(className));
-      }
-      elemDescr.innerHTML = `
-                <div class="details" id=${this.id}>
-                    <div class="details__wrapper">
-                        <div class="details__content">
-                            <div class="details__close" data-close>&times;</div>
-                            <div class="details__title">${this.title}</div>
-                            <div class="details__descr">
-                                ${this.descr}</div>
-                        </div>
-                    </div>
-                </div>
-            `;
-      this.parent.append(elemDescr);
-    }
-  }
-  return (0,_services_services__WEBPACK_IMPORTED_MODULE_0__.getResource)(adress).then(data => {
-    data.forEach(({
-      title,
-      id,
-      descr
-    }) => {
-      new details(title, id, descr, ".cardDetails").render();
-    });
-  });
-}
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (cardDetails);
-
-/***/ }),
-
-/***/ "./src/js/modules/cards.js":
-/*!*********************************!*\
-  !*** ./src/js/modules/cards.js ***!
-  \*********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _services_services__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../services/services */ "./src/js/services/services.js");
-
-function cards(container, adress) {
-  class catalogeCard {
-    constructor(src, alt, dataModal, title, oldPrice, price) {
-      this.src = src;
-      this.alt = alt;
-      this.title = title;
-      this.dataModal = dataModal;
-      this.oldPrice = oldPrice;
-      this.price = price;
-    }
-    render() {
-      $(container).slick('slickAdd', `<div class="card">
-                    <div class="card__img">
-                        <div class="card__pik">
-                            <img src=${this.src} alt=${this.alt}>
-                        </div>
-                        <div class="card__btns">
-                            <button data-modal=${this.dataModal} class="btn">Подробнее</button>
-                            <button class="btn">Купить</button>
-                        </div>
-                    </div>
-                    <div class="card__descr">
-                        <div class="card__title title title_fz20">${this.title}</div>
-                        <span class="card__old-price">${this.oldPrice} ₽</span>
-                        <span class="card__price title title_fz20">${this.price} ₽</span>
-                    </div>
-                </div>`);
-    }
-  }
-  return (0,_services_services__WEBPACK_IMPORTED_MODULE_0__.getResource)(adress).then(data => {
-    data.forEach(({
-      img,
-      alt,
-      dataModal,
-      title,
-      oldPrice,
-      price
-    }) => {
-      new catalogeCard(img, alt, dataModal, title, oldPrice, price).render();
-    });
-  });
-}
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (cards);
-
-/***/ }),
-
 /***/ "./src/js/modules/forms.js":
 /*!*********************************!*\
   !*** ./src/js/modules/forms.js ***!
@@ -134,7 +16,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_services__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/services */ "./src/js/services/services.js");
 
 
-function forms(formSelector, modalSelector, dialogSelector, modalTimerID, adress) {
+function forms(formSelector, modalSelector, modalTimerID, url) {
   const forms = document.querySelectorAll(formSelector);
   const message = {
     loading: 'images/spinner.svg',
@@ -156,7 +38,7 @@ function forms(formSelector, modalSelector, dialogSelector, modalTimerID, adress
       form.insertAdjacentElement('afterend', statusMessage);
       const formData = new FormData(form);
       const json = JSON.stringify(Object.fromEntries(formData.entries()));
-      (0,_services_services__WEBPACK_IMPORTED_MODULE_1__.postData)(adress, json).then(data => {
+      (0,_services_services__WEBPACK_IMPORTED_MODULE_1__.postData)(url, json).then(data => {
         console.log(data);
         showThanksModal(message.success);
         form.reset();
@@ -169,7 +51,7 @@ function forms(formSelector, modalSelector, dialogSelector, modalTimerID, adress
     });
   }
   function showThanksModal(message) {
-    const prevModalDialog = document.querySelector(dialogSelector);
+    const prevModalDialog = document.querySelector('.modal__dialog');
     prevModalDialog.classList.add('hide');
     (0,_modal__WEBPACK_IMPORTED_MODULE_0__.openModal)(modalSelector, modalTimerID);
     const thanksModal = document.createElement('div');
@@ -186,10 +68,40 @@ function forms(formSelector, modalSelector, dialogSelector, modalTimerID, adress
       // prevModalDialog.classList.add('show');
       prevModalDialog.classList.remove('hide');
       (0,_modal__WEBPACK_IMPORTED_MODULE_0__.closeModal)(modalSelector);
-    }, 4000);
+    }, 3000);
   }
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (forms);
+
+/***/ }),
+
+/***/ "./src/js/modules/hamburger.js":
+/*!*************************************!*\
+  !*** ./src/js/modules/hamburger.js ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function hamburger() {
+  const menu = document.querySelector('.navbar__wrapper'),
+    link = document.querySelectorAll('.menu__item'),
+    hamburger = document.querySelector('.navbar__hamburger');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('navbar__hamburger_active');
+    menu.classList.toggle('navbar__wrapper_active');
+  });
+  link.forEach(item => {
+    item.addEventListener('click', () => {
+      hamburger.classList.toggle('navbar__hamburger_active');
+      menu.classList.toggle('navbar__wrapper_active');
+    });
+  });
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (hamburger);
 
 /***/ }),
 
@@ -259,14 +171,23 @@ function slider(container) {
   const swiper = new Swiper(container, {
     direction: 'horizontal',
     loop: true,
-    slidesPerView: 3,
-    spaceBetween: 30,
+    slidesPerView: 1,
     autoplay: {
       delay: 5000,
       // задержка между слайдами
       disableOnInteraction: false,
       // отключение автопрокрутки при взаимодействии пользователя
       pauseOnMouseEnter: true // остановка автопрокрутки при наведении мыши
+    },
+    breakpoints: {
+      768: {
+        slidesPerView: 2,
+        spaceBetween: 30
+      },
+      992: {
+        slidesPerView: 3,
+        spaceBetween: 30
+      }
     }
 
     // If we need pagination
@@ -277,6 +198,67 @@ function slider(container) {
   });
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (slider);
+
+/***/ }),
+
+/***/ "./src/js/modules/subscribe.js":
+/*!*************************************!*\
+  !*** ./src/js/modules/subscribe.js ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _services_services__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../services/services */ "./src/js/services/services.js");
+
+function subscribe(formSelector, adress) {
+  const forms = document.querySelectorAll(formSelector);
+  const message = {
+    loading: 'images/spinner.svg',
+    success: 'Спасибо!',
+    failure: 'Ошибка'
+  };
+  forms.forEach(item => {
+    bindPostData(item);
+  });
+  function bindPostData(form) {
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const statusMessage = document.createElement('img');
+      statusMessage.src = message.loading;
+      statusMessage.style.cssText = `
+                display: block;
+                margin: 0 auto;
+            `;
+      form.insertAdjacentElement('afterend', statusMessage);
+      const formData = new FormData(form);
+      const json = JSON.stringify(Object.fromEntries(formData.entries()));
+      (0,_services_services__WEBPACK_IMPORTED_MODULE_0__.postData)(adress, json).then(data => {
+        console.log(data);
+        showThanks(message.success);
+        form.reset();
+        statusMessage.remove();
+      }).catch(() => {
+        showThanks(message.failure);
+      }).finally(() => {
+        form.reset();
+      });
+    });
+  }
+  function showThanks(message) {
+    const button = document.getElementById("subscribeButton");
+    button.textContent = message;
+    button.classList.add("btn__subscribed");
+    setTimeout(() => {
+      button.textContent = "Подписаться";
+      button.classList.remove("btn__subscribed");
+    }, 3000);
+  }
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (subscribe);
 
 /***/ }),
 
@@ -1606,10 +1588,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var nodelist_foreach_polyfill__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! nodelist-foreach-polyfill */ "./node_modules/nodelist-foreach-polyfill/index.js");
 /* harmony import */ var nodelist_foreach_polyfill__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(nodelist_foreach_polyfill__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _modules_modal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/modal */ "./src/js/modules/modal.js");
-/* harmony import */ var _modules_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/forms */ "./src/js/modules/forms.js");
-/* harmony import */ var _modules_cardDetails__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/cardDetails */ "./src/js/modules/cardDetails.js");
-/* harmony import */ var _modules_cards__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/cards */ "./src/js/modules/cards.js");
-/* harmony import */ var _modules_slider__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/slider */ "./src/js/modules/slider.js");
+/* harmony import */ var _modules_slider__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/slider */ "./src/js/modules/slider.js");
+/* harmony import */ var _modules_subscribe__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/subscribe */ "./src/js/modules/subscribe.js");
+/* harmony import */ var _modules_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/forms */ "./src/js/modules/forms.js");
+/* harmony import */ var _modules_hamburger__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/hamburger */ "./src/js/modules/hamburger.js");
 (__webpack_require__(/*! es6-promise */ "./node_modules/es6-promise/dist/es6-promise.js").polyfill)();
 
 
@@ -1618,36 +1600,22 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+// import popup from './modules/popup';
+// import { openPopup } from './modules/popup';
+// import { closePopup } from './modules/popup';
+
 window.addEventListener('DOMContentLoaded', () => {
-  (0,_modules_slider__WEBPACK_IMPORTED_MODULE_5__["default"])('.swiper');
+  (0,_modules_slider__WEBPACK_IMPORTED_MODULE_2__["default"])('.swiper');
 
   // $('input[name=phone]').mask('+7 (999) 999-99-99');
 
-  const modalTimerID = setTimeout(() => (0,_modules_modal__WEBPACK_IMPORTED_MODULE_1__.openModal)('.modal-consultation', modalTimerID), 60000);
+  const modalTimerID = setTimeout(() => (0,_modules_modal__WEBPACK_IMPORTED_MODULE_1__.openModal)('.modal', modalTimerID), 60000);
   (0,_modules_modal__WEBPACK_IMPORTED_MODULE_1__["default"])('[data-modal=signUp]', '.modal', modalTimerID);
+  (0,_modules_subscribe__WEBPACK_IMPORTED_MODULE_3__["default"])('.form-subscribe', 'http://localhost:3000/subscribe');
+  // popup();
 
-  // forms('.form-consultation', '.modal-consultation', '.dialog-consultation', modalTimerID, 'http://localhost:3000/callback');
-  // forms('.form-activation', '.modal-activation', '.dialog-activation', modalTimerID, 'http://localhost:3000/activate');
-
-  // sliSlider('.boxes__slider');
-
-  // cards('.cataloge__slider', 'http://localhost:3000/cataloge');
-  // cards('.boxes__slider', 'http://localhost:3000/boxes');
-
-  // cardDetails('http://localhost:3000/cataloge')
-  //     .then(() => {
-  //         forModal('c');
-  //     });
-  // cardDetails('http://localhost:3000/boxes')
-  //     .then(() => {
-  //         forModal('b');
-  //     });
-
-  // function forModal(name) {
-  //     for (let i = 1; i <= 10; i++) {
-  //         modal(`[data-modal=${name}${i}]`, `#${name}${i}`);
-  //     }
-  // };
+  (0,_modules_forms__WEBPACK_IMPORTED_MODULE_4__["default"])('.form-checking', '.modal', modalTimerID, 'http://localhost:3000/checking');
+  (0,_modules_hamburger__WEBPACK_IMPORTED_MODULE_5__["default"])();
 });
 })();
 

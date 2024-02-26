@@ -13,7 +13,7 @@
     &__placeholder {
         margin: 0 15px 0 100px;
         height: 52px;
-        padding: 16px 10px 16px 30px;
+        padding: 16px 30px 16px 30px;
         font-weight: 600;
         border: 1px solid $main-color;
         border-radius: 26px;
@@ -44,9 +44,6 @@
     &__navbar {
         padding: 0 0 40px 0;
         background: $light-grey;
-        // &-right {
-        //     
-        // }
         .divider {
             width: 262px;
             height: 1px;

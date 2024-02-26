@@ -1,7 +1,7 @@
 import { closeModal, openModal } from "./modal";
 import { postData } from "../services/services";
 
-function forms (formSelector, modalSelector, dialogSelector, modalTimerID, adress) {
+function forms (formSelector, modalSelector, modalTimerID, url) {
     
     const forms = document.querySelectorAll(formSelector);
 
@@ -32,7 +32,7 @@ function forms (formSelector, modalSelector, dialogSelector, modalTimerID, adres
 
             const json = JSON.stringify(Object.fromEntries(formData.entries()));
 
-            postData(adress, json) 
+            postData(url, json) 
             .then(data => {
                 console.log(data);
                 showThanksModal(message.success);
@@ -49,7 +49,7 @@ function forms (formSelector, modalSelector, dialogSelector, modalTimerID, adres
     }
 
     function showThanksModal(message) {
-        const prevModalDialog = document.querySelector(dialogSelector);
+        const prevModalDialog = document.querySelector('.modal__dialog');
 
         prevModalDialog.classList.add('hide');
         openModal(modalSelector, modalTimerID);
@@ -69,7 +69,7 @@ function forms (formSelector, modalSelector, dialogSelector, modalTimerID, adres
             // prevModalDialog.classList.add('show');
             prevModalDialog.classList.remove('hide');
             closeModal(modalSelector);
-        }, 4000);
+        }, 3000);
     }
 }
 

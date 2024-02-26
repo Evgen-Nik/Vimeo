@@ -5,16 +5,17 @@
         position: relative;
     }
     .menu {
+        padding-left: 0;
         margin: 0;
-        margin-left: 120px;
+        margin-left: 80px;
         display: flex;
-        width: 827px;
         justify-content: space-between;
         vertical-align: middle;
         &__item {
             list-style: none;
             border-right: 1px solid rgba(55,69,74,.2);
             padding-right: 28px;
+            padding-left: 28px;
             &:last-child {
                 border-right: none;
                 padding-right: 0;
@@ -27,23 +28,25 @@
 
     }
     &__searchPanel {
-            height: 70px;
-            padding-top: 23px;
-            background: #62A53C;
-            position: absolute;
-            right: -360px;
-            width: 435px;
-            // overflow: hidden;
-            button {
-                margin-left: 36px;
-                background: none;
-                border: none;
-            }
-            input {
-                width: 70%;
-                background: none;
-                border: none;
-            }
+        height: 70px;
+        padding-top: 23px;
+        background: #62A53C;
+        position: absolute;
+        right: -360px;
+        width: 435px;
+        button {
+            margin-left: 36px;
+            margin-right: 20px;
+            background: none;
+            border: none;
         }
-    
+        input {
+            width: 70%;
+            background: none;
+            border: none;
+        }
+    }
+    &__hamburger {
+        display: none;
+    }
 }    
