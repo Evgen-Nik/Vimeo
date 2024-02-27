@@ -1,10 +1,6 @@
 .header {
     height: 92px;
     padding-top: 18px;
-    .container {
-        display: flex;
-        align-items: center;
-    }
     &__logo {
         position: absolute;
         top: -14px;
@@ -12,8 +8,12 @@
         margin-left: 25px;
         z-index: 1;
     }
-    &__location {
+    &__wrapper {
         margin-left: 274px;
+        display: flex;
+        align-items: center;
+    }
+    &__location {
         position: relative;
         &::before {
             position: absolute;
@@ -32,6 +32,11 @@
         }
         color: $main-color;
 		padding-right: 10px;
+        text-decoration: none;
+        &:hover {
+            text-decoration: none;
+            color: $main-color;
+        }
     }
     &__greyText {
         border-left: 1px solid #DFDFDF;
@@ -64,6 +69,10 @@
             &:hover {
                 text-decoration: none;
             }
+        }
+        .tel {
+            text-decoration: none;
+            color: $text-color;
         }
         &::before {
             position: absolute;

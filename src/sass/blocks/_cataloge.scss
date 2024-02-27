@@ -4,6 +4,8 @@
         text-align: center;
     }
     &__card {
+        display: block;
+        margin: 0 auto;
         margin-top: 67px;
         padding: 65px 10px 10px 10px;
         min-height: 190px;

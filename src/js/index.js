@@ -7,7 +7,8 @@ import { openModal } from './modules/modal';
 import subscribe from './modules/subscribe';
 import forms from './modules/forms';
 import hamburger from './modules/hamburger';
-// import popup from './modules/popup';
+import footer from './modules/footer';
+import popup from './modules/popup';
 // import { openPopup } from './modules/popup';
 // import { closePopup } from './modules/popup';
 
@@ -21,9 +22,12 @@ window.addEventListener('DOMContentLoaded', () => {
 
     modal('[data-modal=signUp]', '.modal', modalTimerID);
     subscribe('.form-subscribe', 'http://localhost:3000/subscribe');
-    // popup();
 
     forms('.form-checking', '.modal', modalTimerID, 'http://localhost:3000/checking');
 
     hamburger();
+
+    footer();
+
+    popup('.popup', 'popupImg');
 });

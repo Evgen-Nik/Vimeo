@@ -1,6 +1,35 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/js/modules/footer.js":
+/*!**********************************!*\
+  !*** ./src/js/modules/footer.js ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function footer() {
+  const footerMenuItem = document.getElementsByClassName("footer__menu-item");
+  const toggleFooterClass = function () {
+    document.querySelectorAll('.footer__menu-item').forEach((item, i) => {
+      if (item !== this) {
+        item.classList.remove("active");
+      }
+    });
+    this.classList.contains("active") ? this.classList.remove("active") : this.classList.add("active");
+  };
+  Array.from(footerMenuItem).forEach(function (element) {
+    element.addEventListener('click', toggleFooterClass);
+  });
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (footer);
+
+/***/ }),
+
 /***/ "./src/js/modules/forms.js":
 /*!*********************************!*\
   !*** ./src/js/modules/forms.js ***!
@@ -19,7 +48,7 @@ __webpack_require__.r(__webpack_exports__);
 function forms(formSelector, modalSelector, modalTimerID, url) {
   const forms = document.querySelectorAll(formSelector);
   const message = {
-    loading: 'images/spinner.svg',
+    loading: 'icons/spinner.svg',
     success: 'Спасибо! Скоро мы с Вами свяжемся',
     failure: 'Что-то пошло не так...'
   };
@@ -89,8 +118,13 @@ __webpack_require__.r(__webpack_exports__);
 function hamburger() {
   const menu = document.querySelector('.navbar__wrapper'),
     link = document.querySelectorAll('.menu__item'),
-    hamburger = document.querySelector('.navbar__hamburger');
+    hamburger = document.querySelector('.navbar__hamburger'),
+    close = document.querySelector('.closeMenu');
   hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('navbar__hamburger_active');
+    menu.classList.toggle('navbar__wrapper_active');
+  });
+  close.addEventListener('click', () => {
     hamburger.classList.toggle('navbar__hamburger_active');
     menu.classList.toggle('navbar__wrapper_active');
   });
@@ -151,6 +185,55 @@ function modal(triggerSelector, modalSelector, modalTimerID) {
   });
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (modal);
+
+
+
+/***/ }),
+
+/***/ "./src/js/modules/popup.js":
+/*!*********************************!*\
+  !*** ./src/js/modules/popup.js ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   closePopup: () => (/* binding */ closePopup),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
+/* harmony export */   openPopup: () => (/* binding */ openPopup)
+/* harmony export */ });
+function closePopup(popupSelector) {
+  const popup = document.querySelector(popupSelector);
+  popup.classList.add('hide');
+  popup.classList.remove('show');
+}
+function openPopup(popupSelector, popupImgId, imgID) {
+  const popup = document.querySelector(popupSelector),
+    popupImg = document.getElementById(popupImgId),
+    img = document.getElementById(imgID);
+  popupImg.src = img.src;
+  popup.classList.add('show');
+  popup.classList.remove('hide');
+}
+function popup(popupSelector, popupImgId) {
+  const popup = document.querySelector(popupSelector),
+    images = document.querySelectorAll('img');
+  images.forEach(img => {
+    img.addEventListener('click', () => openPopup(popupSelector, popupImgId, img.id));
+  });
+  popup.addEventListener('click', e => {
+    if (e.target === popup || e.target.getAttribute('data-close') == '') {
+      closePopup(popupSelector);
+    }
+  });
+  document.addEventListener('keydown', e => {
+    if (e.code === 'Escape' && popup.classList.contains('show')) {
+      closePopup(popupSelector);
+    }
+  });
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (popup);
 
 
 
@@ -217,7 +300,7 @@ __webpack_require__.r(__webpack_exports__);
 function subscribe(formSelector, adress) {
   const forms = document.querySelectorAll(formSelector);
   const message = {
-    loading: 'images/spinner.svg',
+    loading: 'icons/spinner.svg',
     success: 'Спасибо!',
     failure: 'Ошибка'
   };
@@ -1592,6 +1675,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_subscribe__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/subscribe */ "./src/js/modules/subscribe.js");
 /* harmony import */ var _modules_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/forms */ "./src/js/modules/forms.js");
 /* harmony import */ var _modules_hamburger__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/hamburger */ "./src/js/modules/hamburger.js");
+/* harmony import */ var _modules_footer__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/footer */ "./src/js/modules/footer.js");
+/* harmony import */ var _modules_popup__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/popup */ "./src/js/modules/popup.js");
 (__webpack_require__(/*! es6-promise */ "./node_modules/es6-promise/dist/es6-promise.js").polyfill)();
 
 
@@ -1600,7 +1685,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-// import popup from './modules/popup';
+
+
 // import { openPopup } from './modules/popup';
 // import { closePopup } from './modules/popup';
 
@@ -1612,10 +1698,10 @@ window.addEventListener('DOMContentLoaded', () => {
   const modalTimerID = setTimeout(() => (0,_modules_modal__WEBPACK_IMPORTED_MODULE_1__.openModal)('.modal', modalTimerID), 60000);
   (0,_modules_modal__WEBPACK_IMPORTED_MODULE_1__["default"])('[data-modal=signUp]', '.modal', modalTimerID);
   (0,_modules_subscribe__WEBPACK_IMPORTED_MODULE_3__["default"])('.form-subscribe', 'http://localhost:3000/subscribe');
-  // popup();
-
   (0,_modules_forms__WEBPACK_IMPORTED_MODULE_4__["default"])('.form-checking', '.modal', modalTimerID, 'http://localhost:3000/checking');
   (0,_modules_hamburger__WEBPACK_IMPORTED_MODULE_5__["default"])();
+  (0,_modules_footer__WEBPACK_IMPORTED_MODULE_6__["default"])();
+  (0,_modules_popup__WEBPACK_IMPORTED_MODULE_7__["default"])('.popup', 'popupImg');
 });
 })();
 

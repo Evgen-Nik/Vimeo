@@ -49,4 +49,9 @@
     &__hamburger {
         display: none;
     }
+    &__wrapper {
+        .closeMenu {
+            display: none;
+        }
+    }
 }    

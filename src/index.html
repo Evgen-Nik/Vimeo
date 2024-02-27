@@ -11,33 +11,37 @@
 <body>
 	<header class="header">
         <div class="container">
-            <img src="icons/vimeo.svg" alt="vimeo" class="header__logo">
-            <div class="header__location">
-                <div class="text text_boldUp">Текст Текст</div>
-                <div class="text">
-                    <span class="text_bold header__pin">
-                        <img src="icons/pin.svg" alt="pin">
-                        Тексттт (10)
-                    </span>
-                    <span class="text_op60 header__greyText">текст (10)</span>
+            <a href="#">
+                <img src="icons/vimeo.svg" alt="vimeo" class="header__logo">
+            </a>
+            <div class="header__wrapper">
+                <div class="header__location">
+                    <div class="text text_boldUp">Текст Текст</div>
+                    <div class="text">
+                        <a href="#" class="text_bold header__pin">
+                            <img src="icons/pin.svg" alt="pin">
+                            Тексттт (10)
+                        </a>
+                        <span class="text_op60 header__greyText">текст (10)</span>
+                    </div>
                 </div>
-            </div>
-            <button data-modal=signUp class="btn btn_border header__btn">
-                <!-- <img src="icons/text.svg" alt="text"> -->
-                <!-- <span>Запишитесь на <br> проверку</span> -->
-                Запишитесь на <br> проверку
-            </button>
-            <div class="header__contacts">
-                <div class="text text_bold text_fz18">+7 (800) 111-111-1</div>
-                <a class="text text_fz14" href="#">Перезвоните мне</a>
-            </div>
-            <div class="header__likes">
-                <img src="icons/HeartIcon.svg" alt="heart">
-                <span class="likes__counter">7</span>
-            </div>
-            <div class="header__basket">
-                <img src="icons/ShoppingCartIcon.svg" alt="basket">
-                <span class="basket__counter">3</span>
+                <button data-modal=signUp class="btn btn_border header__btn">
+                    <!-- <img src="icons/text.svg" alt="text"> -->
+                    <!-- <span>Запишитесь на <br> проверку</span> -->
+                    Запишитесь на <br> проверку
+                </button>
+                <div class="header__contacts">
+                    <a href="tel:88001111111" class="text text_bold text_fz18 tel">+7 (800) 111-111-1</a>
+                    <a href="#" class="text text_fz14">Перезвоните мне</a>
+                </div>
+                <a href="#" class="header__likes">
+                    <img src="icons/HeartIcon.svg" alt="heart">
+                    <span class="likes__counter">7</span>
+                </a>
+                <a href="" class="header__basket">
+                    <img src="icons/ShoppingCartIcon.svg" alt="basket">
+                    <span class="basket__counter">3</span>
+                </a>
             </div>
         </div>
 	</header>
@@ -57,6 +61,7 @@
                     <li class="menu__item"><a href="#" class="text menu__link">Текст текст</a></li>
                     <li class="menu__item"><a href="#" class="text menu__link">Текст текст</a></li>
                 </ul>
+                <div class="closeMenu" data-close>&times;</div>
             </div>
             <form class="navbar__searchPanel">
                 <button type="submit">
@@ -70,13 +75,13 @@
     <section class="promo">
         <div class="container">
             <div class="row">
-                <div class="col-12 col-md-8">
+                <div class="col-12 col-sm-7 col-md-8">
                     <div class="promo__nav">
                         <a href="#" class="promo__home">
                             <img src="icons/home.svg" alt="home page">
                         </a>
                         <img src="icons/arrow-icon.svg" alt="arrow">
-                        <div class="text text_op60">Текст Текст</div>
+                        <a href="#" class="text text_op60">Текст Текст</a>
                     </div>
                     <h1 class="title title_fz42">
                         Заголовок <span>текст текст</span> текст текст текст текст
@@ -89,9 +94,9 @@
                     </i></p>
                     <button data-modal=signUp class="btn btn_border promo__btn">Записаться на проверку</button>
                 </div>
-                <div class="col-12 col-md-4">
+                <div class="col-12 col-sm-5 col-md-4">
                     <div class="promo__foto">
-                        <img src="images/doc.png" alt="doc">
+                        <img src="images/doc.png" alt="doc" id="doc">
                     </div>
                 </div>
             </div>
@@ -174,7 +179,7 @@
                 </div>
                 <div class="col-12 col-md-4">
                     <div class="textBlock__foto">
-                        <img src="images/scanning.png" alt="doc">
+                        <img src="images/scanning.png" alt="scanning" id="scanning">
                     </div>
                 </div>
             </div>
@@ -190,8 +195,7 @@
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
                                 <div class="carousel__image">
-                                    <img src="images/question1.png" alt="question1" class="carousel__foto" loading="lazy">
-                                    <img src="images/Ellipse1.png" alt="ellipse1" class="carousel__round" loading="lazy">
+                                    <img src="images/question1.png" alt="question1" class="carousel__foto" loading="lazy" id="question1">
                                 </div>
                                 <div class="carousel__descr">
                                     <h4 class="title title_fz20">Вопрос вопрос вопрос?</h4>
@@ -200,8 +204,7 @@
                             </div>
                             <div class="swiper-slide">
                                 <div class="carousel__image">
-                                    <img src="images/question2.png" alt="question2" class="carousel__foto" loading="lazy">
-                                    <img src="images/Ellipse2.png" alt="ellipse2" class="carousel__round" loading="lazy">
+                                    <img src="images/question2.png" alt="question2" class="carousel__foto" loading="lazy" id="question2">
                                 </div>
                                 <div class="carousel__descr">
                                     <h4 class="title title_fz20">Вопрос вопрос вопрос?</h4>
@@ -210,8 +213,7 @@
                             </div>
                             <div class="swiper-slide">
                                 <div class="carousel__image">
-                                    <img src="images/question3.png" alt="question3" class="carousel__foto" loading="lazy">
-                                    <img src="images/Ellipse3.png" alt="ellipse3" class="carousel__round" loading="lazy">
+                                    <img src="images/question3.png" alt="question3" class="carousel__foto" loading="lazy" id="question3">
                                 </div>
                                 <div class="carousel__descr">
                                     <h4 class="title title_fz20">Вопрос вопрос вопрос?</h4>
@@ -220,8 +222,7 @@
                             </div>
                             <div class="swiper-slide">
                                 <div class="carousel__image">
-                                    <img src="images/question1.png" alt="question1" class="carousel__foto" loading="lazy">
-                                    <img src="images/Ellipse1.png" alt="ellipse1" class="carousel__round" loading="lazy">
+                                    <img src="images/question1.png" alt="question1" class="carousel__foto" loading="lazy" id="question4">
                                 </div>
                                 <div class="carousel__descr">
                                     <h4 class="title title_fz20">Вопрос вопрос вопрос?</h4>
@@ -230,8 +231,7 @@
                             </div>
                             <div class="swiper-slide">
                                 <div class="carousel__image">
-                                    <img src="images/question2.png" alt="question2" class="carousel__foto" loading="lazy">
-                                    <img src="images/Ellipse2.png" alt="ellipse2" class="carousel__round" loading="lazy">
+                                    <img src="images/question2.png" alt="question2" class="carousel__foto" loading="lazy" id="question5">
                                 </div>
                                 <div class="carousel__descr">
                                     <h4 class="title title_fz20">Вопрос вопрос вопрос?</h4>
@@ -240,8 +240,7 @@
                             </div>
                             <div class="swiper-slide">
                                 <div class="carousel__image">
-                                    <img src="images/question3.png" alt="question3" class="carousel__foto" loading="lazy">
-                                    <img src="images/Ellipse3.png" alt="ellipse3" class="carousel__round" loading="lazy">
+                                    <img src="images/question3.png" alt="question3" class="carousel__foto" loading="lazy" id="question6">
                                 </div>
                                 <div class="carousel__descr">
                                     <h4 class="title title_fz20">Вопрос вопрос вопрос?</h4>
@@ -268,7 +267,7 @@
     <section class="questions">
         <div class="container">
             <div class="row">
-                <div class="col-12 col-md-7">
+                <div class="col-12 col-lg-7">
                     <div class="questions__wrapper">
                         <h3 class="title questions__title">Вопрос вопрос вопрос вопрос вопрос вопрос вопрос?</h3>
                     <ol>
@@ -281,15 +280,15 @@
                     <p>Текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст .</p>
                     </div>
                 </div>
-                <div class="col-12 col-md-5">
+                <div class="col-12 col-lg-5">
                     <div class="questions__foto">
-                        <img src="images/manIsChecking.png" alt="manIsChecking">
+                        <img src="images/manIsChecking.png" alt="manIsChecking" id="manIsChecking">
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-12">
-                    <button data-modal=signUp class="btn btn_big btn_gradient btn_arrow cataloge__btn">
+                    <button data-modal=signUp class="btn btn_big btn_gradient btn_arrow questions__btn">
                         Записаться на проверку
                         <span class="arrow">
                             <img src="icons/arrow-point-to-right.svg" alt="arrow">
@@ -304,7 +303,7 @@
         <div class="footer__top">
             <div class="container">
                 <div class="row">
-                    <div class="col-12 col-md-8 footer__subscribe">
+                    <div class="col-8 col-sm-6 col-md-8 footer__subscribe">
                         <div class="text text_bold text_fz18">Текст текст текст текст текст текст текст</div>
                         <form class="form-subscribe">
                             <input type="email" required name="email" placeholder="Введите свой e-mail" class="footer__placeholder text">
@@ -313,18 +312,18 @@
                             </button>
                         </form>
                     </div>
-                    <div class="col-12 col-md-4 footer__media">
+                    <div class="col-4 col-sm-6 col-md-4 footer__media">
                         <div class="text text_boldUp">МЫ В СОЦ. СЕТЯХ:</div>
                         <div class="footer__socials">
-                            <div class="footer__socials-item">
+                            <a href="#" class="footer__socials-item">
                                 <img src="icons/vk.svg" alt="vk">
-                            </div>
-                            <div class="footer__socials-item">
+                            </a>
+                            <a href="#" class="footer__socials-item">
                                 <img src="icons/facebook.svg" alt="facebook">
-                            </div>
-                            <div class="footer__socials-item">
+                            </a>
+                            <a href="#" class="footer__socials-item">
                                 <img src="icons/instagram.svg" alt="instagram">
-                            </div>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -334,7 +333,9 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12 col-md-3">
-                        <img src="icons/vimeo.svg" alt="vimeo" class="footer__logo">
+                        <a href="#">
+                            <img src="icons/vimeo.svg" alt="vimeo" class="footer__logo">
+                        </a>
                         <div class="footer__contacts">
                             <div class="footer__contacts-item">
                                 <img src="icons/phone-call.svg" alt="phone-call">
@@ -438,6 +439,15 @@
                     </div>
                     <button class="btn btn_gradient modal__btn">Отправить</button>
                 </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="popup">
+        <div class="popup__dialog">
+            <div class="popup__content">
+                <div class="popup__close" data-close>&times;</div>
+                <img src="placeholder.jpg" alt="Popup Image" id="popupImg">
             </div>
         </div>
     </div>

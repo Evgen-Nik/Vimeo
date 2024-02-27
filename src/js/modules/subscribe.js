@@ -5,7 +5,7 @@ function subscribe (formSelector, adress) {
     const forms = document.querySelectorAll(formSelector);
 
     const message = {
-        loading: 'images/spinner.svg',
+        loading: 'icons/spinner.svg',
         success: 'Спасибо!',
         failure: 'Ошибка'
     };

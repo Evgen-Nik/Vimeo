@@ -91,8 +91,10 @@
             width: 150px;
             top: -11px;
         }
-        &__location {
+        &__wrapper {
             margin-left: 204px;
+        }
+        &__location {
             display: flex;
             flex-direction: column;
             &::before {
@@ -286,6 +288,11 @@
             }
         }
     }
+    .promo {
+        &__foto {
+            margin-top: 50px;
+        }
+    }
     .cataloge {
         &__card {
             &:before {
@@ -309,15 +316,13 @@
     }
     .questions {
         &__wrapper {
-            border-radius: 20px 0 20px 20px;
+            border-radius: 20px;
+        }
+        &__foto {
+            display: none;
         }
     }
     .footer {
-        &__media {
-            .text {
-                font-size: 14px;
-            }
-        }
         &__placeholder {
             height: 40px;
         }
@@ -343,9 +348,51 @@
     .text {
         font-size: 14px;
     }
-    .header {
+    .btn {
+        font-size: 14px;
+    }
+    .header { 
         &__logo {
             margin-left: 0;
+        }
+        &__wrapper {
+            display: grid;
+            grid-template: 20px 25px / 70% 10% 10%;
+            row-gap: 10px;
+            column-gap: 15px;
+            margin-left: 160px;
+        }
+        &__location {
+            margin-left: 0;
+            display: flex;
+            flex-direction: row;
+            grid-column: 1/4;
+            &::before {
+                content: none;
+            }
+        }
+        &__pin {
+            img {
+                padding-right: 5px;
+            }
+            padding-right: 5px;
+            padding-left: 10px;
+        }
+        &__contacts {
+            display: flex;
+            margin: 0;
+            a {
+                margin-left: 20px;
+            }
+            &::before {
+                content: none;
+            }
+        }
+        &__likes {
+            margin: 0;
+        }
+        &__basket {
+            margin: 0;
         }
     }
     .navbar {
@@ -362,7 +409,16 @@
             background-color: rgba(0,0,0, .9);
             transition: 0.6s all;
             z-index: 10;
-
+            .closeMenu {
+                display: block;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                font-size: 40px;
+                line-height: 20px;
+                color: #ff0000;
+                cursor: pointer;
+            }
             &_active{
                 left: 0;
             } 
@@ -382,7 +438,7 @@
         &__hamburger {
             display: block;
             position: absolute;
-            right: 70px;
+            right: 20px;
             top: 50%;
             transform: translateY(-50%);
             width: 27px;
@@ -410,6 +466,61 @@
                 }
             }
         }
+        &__searchPanel {
+            height: 50px;
+            padding-top: 13px;
+            left: 10px;
+            max-width: 300px;
+            button {
+                margin-left: 10px;
+                img {
+                    width: 80%;
+                }
+            }
+            input {
+                width: 70%;
+            }
+        }
+    }
+    .cataloge {
+        &__card {
+            width: 80%;
+        }
+    }
+    .footer {
+        &__media {
+            justify-content: center;
+        }
+        &__subscribe {
+            button {
+                margin-top: 10px;
+            }
+        }
+        &__contacts {
+            display: grid;
+            grid-template: 20px 20px / 40% 40%;
+            gap: 10px;
+            &-item {
+                margin: 0;
+                a {
+                    margin-left: 5px;
+                }
+            }
+        }
+        &__navbar {
+            .divider {
+                width: 100%;
+                height: 1px;
+                background: #dfdfdf;
+                margin-top: 5px;
+            }
+        }
+        &__menu {
+            margin-top: 10px;
+            border: none;
+            border-top: 1px solid #dfdfdf;
+            padding-top: 10px;
+        }
     }
 }
 
@@ -420,5 +531,110 @@
         max-width: 100%;
         padding: 0 10px;
     }
-    
+    .btn {
+        &_big {
+            height: 50px;
+            border-radius: 25px;
+        }
+        &_arrow {
+            .arrow {
+                margin-left: 20px;
+            }
+        }
+    }
+    .header { 
+        height: 110px;
+        &__logo {
+            width: 100px;
+        }
+        &__wrapper {
+            display: grid;
+            grid-template: 40px 20px 20px / 70% 10% 10%;
+            row-gap: 5px;
+            column-gap: 15px;
+            margin-left: 0;
+        }
+        &__location {
+            grid-row: 2;
+            grid-column: 1/4;
+        }
+        &__contacts {
+            grid-row: 3;
+            grid-column: 1/4;
+        }
+        &__likes {
+            grid-column: 2;
+        }
+        &__basket {
+            grid-column: 3;
+        }
+    }
+    .navbar {
+        &__wrapper {
+            width: 80%;
+        }
+    }
+    .promo {
+        &__foto {
+            display: none;
+        }
+    }
+    .cataloge, .questions {
+        &__btn {
+            text-transform: none;
+        }
+    }
+    .footer {
+        &__socials {
+            flex-direction: column;
+            gap: 10px;
+            &-item {
+                margin: 0;
+            }
+        }
+        &__contacts {
+            grid-template: 20px 20px / 45% 45%;
+            gap: 10px;
+        }
+        &__menu {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            &-item {
+                display: flex;
+                flex-direction: column;
+                align-items: start;
+                ul {
+                    max-height: 0;
+                    padding-top: 0;
+                    transition: all 0.4s ease-out;
+                    overflow: hidden;
+                    li {
+                        &:last-child {
+                            margin-bottom: 20px;
+                        }
+                    }
+                }
+                &.active {
+                    ul {
+                        max-height: 300px;
+                    }
+                }
+            }
+        }
+    }
+    .modal {
+        &__content {
+            padding: 30px;
+        }
+        &__title {
+            line-height: 24px;
+        }
+        &__dialog {
+            max-width: 300px;
+        }
+        &__input {
+            height: 40px;
+        }
+    }
 }

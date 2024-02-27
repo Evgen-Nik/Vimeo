@@ -5,20 +5,16 @@
     height: 100%;
     top: 0;
     background-color: rgba(0,0,0, 0.56);
+    z-index: 10;
     &__dialog {
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        max-width: 400px;
     }
     &__content {
         position: relative;
         width: 100%;
-        padding: 40px;
-        background-color: #fff;
-        border: 1px solid rgba(0,0,0,.2);
-        border-radius: 10px;
         max-height: 80vh;
         overflow-y: auto;
     }
@@ -32,10 +28,6 @@
         cursor: pointer;
     }
 }
-
-// .popup__image {
-//     cursor: pointer;
-// }
 
 .hide {
     display: none;
