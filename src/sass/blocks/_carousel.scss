@@ -1,4 +1,7 @@
 .carousel {
+    .title {
+        margin: 0;
+    }
     margin-top: 60px;
     background: $light-grey;
     padding-top: 50px;
@@ -12,9 +15,6 @@
         .swiper-pagination {
             bottom: 0;
         }
-    }
-    &__text {
-        margin-top: 10px;
     }
     &__image {
         background: #EDEEF0;
@@ -36,8 +36,5 @@
         padding: 25px;
         box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2);
         border-radius: 0 0 8px 8px;
-    }
-    &__text {
-        margin-top: 15px;
     }
 }
