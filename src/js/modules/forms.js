@@ -40,6 +40,7 @@ function forms (formSelector, modalSelector, modalTimerID, url) {
                 statusMessage.remove();
             })
             .catch(() => {
+                statusMessage.remove();
                 showThanksModal(message.failure);
             })
             .finally(() => {

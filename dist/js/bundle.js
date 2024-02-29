@@ -73,6 +73,7 @@ function forms(formSelector, modalSelector, modalTimerID, url) {
         form.reset();
         statusMessage.remove();
       }).catch(() => {
+        statusMessage.remove();
         showThanksModal(message.failure);
       }).finally(() => {
         form.reset();
@@ -315,8 +316,13 @@ function subscribe(formSelector, adress) {
       statusMessage.style.cssText = `
                 display: block;
                 margin: 0 auto;
+                position: absolute;
+                right: -40px;
+                top: 50%;
+                transform: translateY(-50%);
             `;
-      form.insertAdjacentElement('afterend', statusMessage);
+      const btn = document.getElementById('subscribeButton');
+      btn.insertAdjacentElement('afterend', statusMessage);
       const formData = new FormData(form);
       const json = JSON.stringify(Object.fromEntries(formData.entries()));
       (0,_services_services__WEBPACK_IMPORTED_MODULE_0__.postData)(adress, json).then(data => {
@@ -325,6 +331,7 @@ function subscribe(formSelector, adress) {
         form.reset();
         statusMessage.remove();
       }).catch(() => {
+        statusMessage.remove();
         showThanks(message.failure);
       }).finally(() => {
         form.reset();

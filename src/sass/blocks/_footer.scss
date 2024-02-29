@@ -9,6 +9,17 @@
         .text {
             max-width: 240px;
         }
+        .form-subscribe {
+            display: flex;
+            align-items: center;
+            div {
+                position: relative;
+            }
+        }
+    }
+    &__form {
+        position: relative;
+        max-width: 500px;
     }
     &__placeholder {
         margin: 0 15px 0 100px;

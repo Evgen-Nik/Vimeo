@@ -495,6 +495,10 @@
             button {
                 margin-top: 10px;
             }
+            .form-subscribe {
+                flex-direction: column;
+                align-items: start;
+            }
         }
         &__contacts {
             display: grid;

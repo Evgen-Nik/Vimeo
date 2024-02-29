@@ -67,7 +67,7 @@
                 <button type="submit">
                     <img src="icons/magnifying-glass.svg" alt="search">
                 </button>
-                <input type="text" placeholder=" ">
+                <label><input type="text" placeholder=" "></label>
             </form>
         </div>
     </nav>
@@ -188,7 +188,7 @@
 
     <section class="carousel">
         <div class="container">
-            <h3 class="title textBlock__title">Заголовок</h3>
+            <h3 class="title carousel__title">Заголовок</h3>
             <div class="row">
                 <div class="col-12">
                     <div class="swiper">
@@ -306,10 +306,12 @@
                     <div class="col-8 col-sm-6 col-md-8 footer__subscribe">
                         <div class="text text_bold text_fz18">Текст текст текст текст текст текст текст</div>
                         <form class="form-subscribe">
-                            <input type="email" required name="email" placeholder="Введите свой e-mail" class="footer__placeholder text">
-                            <button type="submit" class="btn btn_gradient" id="subscribeButton">
-                                Подписаться
-                            </button>
+                            <label><input type="email" required name="email" placeholder="Введите свой e-mail" class="footer__placeholder text"></label>
+                            <div>
+                                <button type="submit" class="btn btn_gradient" id="subscribeButton">
+                                    Подписаться
+                                </button>
+                            </div>
                         </form>
                     </div>
                     <div class="col-4 col-sm-6 col-md-4 footer__media">
@@ -343,7 +345,7 @@
                             </div>
                             <div class="footer__contacts-item">
                                 <img src="icons/at.svg" alt="email">
-                                <a href="email:info@vimeo.ru" class="text text_op60">info@vimeo.ru</a>
+                                <a href="mailto:info@vimeo.ru" class="text text_op60">info@vimeo.ru</a>
                             </div>
                             <div class="footer__contacts-item">
                                 <img src="icons/questions-circular-button.svg" alt="email">
@@ -431,8 +433,8 @@
                 <div class="modal__close" data-close>&times;</div>
                 <div class="modal__title title">Просто заполните форму заявки</div>
                 <form action="#" class="form-checking">
-                    <input class="modal__input" required name="email" placeholder="Ваш E-mail" type="email">
-                    <input class="modal__input" required name="phone" placeholder="Ваш телефон" type="tel">
+                    <label><input class="modal__input" required name="email" placeholder="Ваш E-mail" type="email"></label>
+                    <label><input class="modal__input" required name="phone" placeholder="Ваш телефон" type="tel"></label>
                     <div class="modal__check">
                         <input class="modal__checkbox custom-checkbox" required name="checkbox" type="checkbox" id="checkbox">
                         <label for="checkbox" class="text text_fz14">Я хочу получать информацию о новостях и акциях компании</label>

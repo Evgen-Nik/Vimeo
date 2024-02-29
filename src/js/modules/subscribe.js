@@ -23,9 +23,15 @@ function subscribe (formSelector, adress) {
             statusMessage.style.cssText = `
                 display: block;
                 margin: 0 auto;
+                position: absolute;
+                right: -40px;
+                top: 50%;
+                transform: translateY(-50%);
             `;
 
-            form.insertAdjacentElement('afterend', statusMessage);
+            const btn = document.getElementById('subscribeButton');
+
+            btn.insertAdjacentElement('afterend', statusMessage);
 
             const formData = new FormData(form);
 
@@ -39,6 +45,7 @@ function subscribe (formSelector, adress) {
                 statusMessage.remove();
             })
             .catch(() => {
+                statusMessage.remove();
                 showThanks(message.failure);
             })
             .finally(() => {
